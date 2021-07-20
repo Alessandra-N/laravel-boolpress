@@ -77,7 +77,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $article->update($request->all());
-        return redirect()->route('articles.index');
+        return redirect()->route('adminarticles.index');
     }
 
     /**

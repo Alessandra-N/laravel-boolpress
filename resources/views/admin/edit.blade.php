@@ -1,4 +1,7 @@
-<div class="container_form">
+@extends('layouts.admin')
+@section('main_content')
+
+  <div class="container_form">
     <div class="form-group">
 
       <form action="{{route('adminarticles.update', $article->id)}}" method="POST">
@@ -24,3 +27,5 @@
         <a href="{{route('adminhome')}}">Go back to DB</a>
       </div>
   </div>
+
+@endsection

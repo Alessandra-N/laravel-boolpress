@@ -1,3 +1,5 @@
+@extends('layouts.admin')
+@section('main_content')
 <div class="container_form">
     <div class="form-group">
 
@@ -20,6 +22,7 @@
 
     </div>
       <div class="button">
-        <a href="{{route('adminhome')}}">Go back to DB</a>
+        <a href="{{route('adminhome')}}">Go back to index</a>
       </div>
   </div>
+@endsection

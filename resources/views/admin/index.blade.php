@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+
+@section('main_content')
+
 <div class="container_index">
         <table style="width:100%">
             <tr>
@@ -28,3 +32,4 @@
     <div class="button">
         <a href="{{route('adminarticles.create')}}">Add New Article</a>
     </div>
+@endsection
