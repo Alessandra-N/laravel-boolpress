@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('guest.welcome');
 });
-Route::resource('products', ProductController::class)->only(['index', 'show']);
+Route::resource('articles', ArticleController::class)->only(['index', 'show']);
 
 Auth::routes();
 
