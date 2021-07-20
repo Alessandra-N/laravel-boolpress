@@ -13,7 +13,7 @@
                 <td>
                     <a href="{{route('adminarticles.show', $article->id)}}">View</a> 
                     | <a href="{{route('adminarticles.edit', $article->id)}}">Edit</a>
-                    <form action="#" method="post" onsubmit="return confirm('vuoi davvero cancellare questo fumetto?')">
+                    <form action="{{route('adminarticles.destroy', $article->id)}}" method="post" onsubmit="return confirm('vuoi davvero cancellare questo articolo?')">
                         @method('delete')
                         @csrf
                         <button class="btn btn-danger btn-sm">Destroy</button>
@@ -26,5 +26,5 @@
     </div>
 
     <div class="button">
-        <a href="#">Add New Comic</a>
+        <a href="{{route('adminarticles.create')}}">Add New Article</a>
     </div>
