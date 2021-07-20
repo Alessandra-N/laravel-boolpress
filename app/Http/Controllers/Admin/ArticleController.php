@@ -15,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+        return view('admin.index', compact('articles'));
     }
 
     /**
@@ -47,7 +48,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('guest.show', compact('article'));
     }
 
     /**
@@ -58,7 +59,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('admin.edit', compact('article'));
     }
 
     /**
@@ -70,7 +71,8 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->update($request->all());
+        return redirect()->route('articles.index');
     }
 
     /**
