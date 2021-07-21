@@ -2,7 +2,7 @@
 
 @section('main_content')
 
-<div class="container_index">
+<div class="container_index bg-white">
         <table style="width:100%">
             <tr>
                 <th>Title</th>
@@ -31,5 +31,8 @@
 
     <div class="button">
         <a href="{{route('adminarticles.create')}}">Add New Article</a>
+    </div>
+    <div class="button">
+        <a href="{{ url('/') }}">Torna alla Home</a>
     </div>
 @endsection

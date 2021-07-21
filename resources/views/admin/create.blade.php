@@ -21,8 +21,5 @@
       </form>
 
     </div>
-      <div class="button">
-        <a href="{{route('adminhome')}}">Go back to index</a>
-      </div>
   </div>
 @endsection

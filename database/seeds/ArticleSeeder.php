@@ -16,7 +16,7 @@ class ArticleSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $article = new Article();
             $article->title = $faker->words(5, true);
-            $article->content = $faker->words(30, true);
+            $article->content = $faker->words(300, true);
             $article->save();
         }
     }

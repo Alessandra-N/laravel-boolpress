@@ -10942,11 +10942,12 @@ a.text-dark:focus {
   }
 }
 
-#app {
+body {
   background-image: url("https://cdn.pixabay.com/photo/2021/07/08/14/06/sea-6397001_960_720.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  overflow: auto;
 }
 
 #app nav {
@@ -10968,13 +10969,35 @@ a.text-dark:focus {
 
 main {
   width: 80%;
+  height: 80vh;
   margin: auto;
+  overflow: auto;
+  border-radius: 10px;
 }
 
-.article {
-  background-color: burlywood;
+main .article {
+  background-image: radial-gradient(circle at 50% 50%, #f9fdc9 0, #faf5be 8.33%, #fcedb2 16.67%, #fde3a6 25%, #fed89a 33.33%, #ffcc8e 41.67%, #ffbf83 50%, #ffb17a 58.33%, #ffa474 66.67%, #ff9771 75%, #ff8b71 83.33%, #ff7f74 91.67%, #ff7579 100%);
   padding: 2rem 1rem;
   margin-bottom: 1rem;
   border-radius: 20px;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #5f0a0a;
+  border-radius: 10px;
 }
 

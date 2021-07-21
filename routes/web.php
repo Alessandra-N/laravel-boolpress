@@ -22,7 +22,7 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware('auth')->prefix('admin')->namespace('admin')->name('admin')->group(function () {
+Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin')->group(function () {
     Route::get('/', 'HomeController@home')->name('home');
     Route::resource('articles', ArticleController::class);
 });

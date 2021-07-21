@@ -4,17 +4,15 @@
 
 <main>
 
-@foreach($articles as $article)
+    @foreach($articles as $article)
 
    <div class="article">
         <a href="{{route('articles.show', $article->id)}}">
-        <h1>{{$article->title}}</h1>
+            <h1>{{$article->title}}</h1>
         </a>
-
-        <p>{{$article->content}}</p>
     </div>
 
-@endforeach
+    @endforeach
 
 </main>
 

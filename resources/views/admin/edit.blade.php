@@ -23,9 +23,6 @@
       </form>
 
     </div>
-      <div class="button">
-        <a href="{{route('adminhome')}}">Go back to DB</a>
-      </div>
   </div>
 
 @endsection
