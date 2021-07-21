@@ -37,12 +37,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new Article();
+        /* $article = new Article();
         $article->title = $request->title;
         $article->content = $request->content;
-        $article->save();
+        $article->save(); */
 
-        return redirect('admin');
+        $validated = $request->validate([
+            'title' => 'required|unique:articles|max:255',
+            'content' => 'nullable',
+        ]);
+
+        Article::create($validated);
+        return redirect('admin/articles');
     }
 
     /**
