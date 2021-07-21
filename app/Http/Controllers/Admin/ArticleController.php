@@ -44,7 +44,7 @@ class ArticleController extends Controller
 
         $validated = $request->validate([
             'title' => 'required|unique:articles|max:255',
-            'content' => 'nullable',
+            'content' => 'nullable | min:5',
         ]);
 
         Article::create($validated);
@@ -82,7 +82,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article->update($request->all());
+        $validated = $request->validate([
+            'title' => 'required | min:1 | max:255',
+            'content' => 'nullable | min:5'
+        ]);
+
+        $article->update($validated);
         return redirect()->route('adminarticles.index');
     }
 
