@@ -11,6 +11,6 @@ class HomeController extends Controller
     public function home()
     {
         $articles = Article::all();
-        return view('admin.home', compact('articles'));
+        return view('admin.index', compact('articles'));
     }
 }

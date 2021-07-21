@@ -10942,3 +10942,39 @@ a.text-dark:focus {
   }
 }
 
+#app {
+  background-image: url("https://cdn.pixabay.com/photo/2021/07/08/14/06/sea-6397001_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+#app nav {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+#app a {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+}
+
+#app ul {
+  list-style-type: none;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+}
+
+.article {
+  background-color: burlywood;
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+}
+
