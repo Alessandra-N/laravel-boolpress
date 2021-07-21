@@ -19,5 +19,6 @@
             </div>
         </div>
     </div>
+    <a href="{{route('adminarticles.index')}}">Vai alla sezione Admin</a>
 </div>
 @endsection
