@@ -9,11 +9,11 @@
         @method('PUT')
 
         <label for=""></label>
-        <input type="text" name="title" id="title" class="form-control" placeholder="" aria-describedby="helpId" value="{{$article->title}}">
-        <small id="helpId" class="text-muted">inserisci il titolo</small>
+        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" aria-describedby="titleHelper" value="{{$article->title}}" minlength="2" maxlength="255" required>
+        <small id="titleHelper" class="text-muted">inserisci il titolo minimo 1, massimo 255 caratteri</small>
 
         <label for=""></label>
-        <textarea name="content" id="content" class="form-control" placeholder="" aria-describedby="helpId" rows="5" value="">{{$article->content}}</textarea>
+        <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" aria-describedby="helpId" rows="5" minlength="2" required>{{$article->content}}</textarea>
         <small id="helpId" class="text-muted">inserisci il contenuto</small>
         
         <div class="submit">
