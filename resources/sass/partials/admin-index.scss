@@ -1,0 +1,8 @@
+td, tr, th {
+    padding: 1rem;
+    border: 1px solid black;
+}
+td:first-child,
+td:last-child {
+    width: 10%;
+}

@@ -28,11 +28,4 @@
             @endforeach
         </table>
     </div>
-
-    <div class="button">
-        <a href="{{route('adminarticles.create')}}">Add New Article</a>
-    </div>
-    <div class="button">
-        <a href="{{ url('/') }}">Torna alla Home</a>
-    </div>
 @endsection
