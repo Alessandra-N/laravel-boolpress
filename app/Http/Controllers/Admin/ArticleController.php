@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -42,10 +43,16 @@ class ArticleController extends Controller
         $article->content = $request->content;
         $article->save(); */
 
+        ddd($request);
         $validated = $request->validate([
-            'title' => 'required|unique:articles|max:255',
+            'title' => 'required |unique:articles| max:255',
+            'image' => 'nullable | image | max:50',
             'content' => 'nullable | min:5',
         ]);
+        
+        //ddd($validated['image']);
+        //$file_path = Storage::put('article_images', $validated['image']);
+        //ddd($file_path);
 
         Article::create($validated);
         return redirect('admin/articles');
