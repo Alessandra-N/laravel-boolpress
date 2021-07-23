@@ -6,18 +6,20 @@
         <table style="width:100%">
             <tr>
                 <th>Title</th>
+                <th>Image</th>
                 <th>Content</th>
                 <th>Actions</th>
             </tr>
             @foreach($articles as $article)
             <tr>
                 <td>{{$article->title}}</td>
+                <td><img src="{{asset('storage/' . $article->image)}}" width="100" alt=""></td>
                 <td>{{$article->content}}</td>
             
                 <td>
-                    <a href="{{route('adminarticles.show', $article->id)}}">View</a> 
-                    | <a href="{{route('adminarticles.edit', $article->id)}}">Edit</a>
-                    <form action="{{route('adminarticles.destroy', $article->id)}}" method="post" onsubmit="return confirm('vuoi davvero cancellare questo articolo?')">
+                    <a href="{{route('admin.articles.show', $article->id)}}">View</a> 
+                    | <a href="{{route('admin.articles.edit', $article->id)}}">Edit</a>
+                    <form action="{{route('admin.articles.destroy', $article->id)}}" method="post" onsubmit="return confirm('vuoi davvero cancellare questo articolo?')">
                         @method('delete')
                         @csrf
                         <button class="btn btn-danger btn-sm">Destroy</button>

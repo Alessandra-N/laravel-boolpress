@@ -22,7 +22,7 @@
                         @if (Route::has('login'))
                             <div class="top-right links">
                             @auth
-                                <a href="{{route('adminhome')}}">Admin Section</a>
+                                <a href="{{route('admin.home')}}">Admin Section</a>
                         @else
                             @endauth
                             </div>

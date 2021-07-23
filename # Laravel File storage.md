@@ -55,14 +55,6 @@ into
 'default' => env('FILESYSTEM_DRIVER', 'public'),
 ```
 
-## Change filesystem
-
-Go to filesystem.php and change
-
-```bash
-php artisan storage:link
-```
-
 ## DDD the request from the Admin/PostController@store method
 
 Let's see if we have everything from the request.
@@ -124,7 +116,7 @@ php artisan storage:link
 Now we can use assets to show the image
 
 ```html
- @if($post->cover)
+    @if($post->cover)
         <img src="{{asset('storage/' . $post->cover )}}" alt="">
     @endif
 ```

@@ -43,19 +43,20 @@ class ArticleController extends Controller
         $article->content = $request->content;
         $article->save(); */
 
-        ddd($request);
-        $validated = $request->validate([
-            'title' => 'required |unique:articles| max:255',
-            'image' => 'nullable | image | max:50',
-            'content' => 'nullable | min:5',
+        //ddd($request->all());
+        $validData = $request->validate([
+            'title' => ["required", "unique:articles",  "max:255"],
+            'image' => 'nullable|mimes:jpg,jpeg,gif|max:500',
+            'content' => 'min:5',
         ]);
-        
-        //ddd($validated['image']);
-        //$file_path = Storage::put('article_images', $validated['image']);
-        //ddd($file_path);
-
-        Article::create($validated);
-        return redirect('admin/articles');
+        //ddd($validData);
+        /* $file_path = Storage::disk('public')->put('article_images', $validated['image']);
+        ddd($file_path); */
+        $file_path = Storage::put('article_images', $validData['image']);
+        $validData['image'] = $file_path;
+        Article::create($validData);
+  
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -95,7 +96,7 @@ class ArticleController extends Controller
         ]);
 
         $article->update($validated);
-        return redirect()->route('adminarticles.index');
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -107,6 +108,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('adminarticles.index');
+        return redirect()->route('admin.articles.index');
     }
 }
