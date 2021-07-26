@@ -58,7 +58,7 @@ class ArticleController extends Controller
         if($request->hasFile('image')) {
         $file_path = Storage::put('article_images', $validData['image']);
         $validData['image'] = $file_path;
-    }
+        }
         Article::create($validData);
   
         return redirect()->route('articles.index');
@@ -98,9 +98,14 @@ class ArticleController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required | min:1 | max:255',
+            'image' => 'nullable|mimes:jpg,jpeg,gif|max:500',
+            'category_id' => 'nullable | exists:categories,id',
             'content' => 'nullable | min:5'
         ]);
-
+        if($request->hasFile('image')) {
+            $file_path = Storage::put('article_images', $validated['image']);
+            $validated['image'] = $file_path;
+            }
         $article->update($validated);
         return redirect()->route('admin.articles.index');
     }

@@ -14,7 +14,7 @@
 
   <div class="container_form">
 
-    <form action="{{route('admin.articles.update', $article->id)}}" method="POST">
+    <form action="{{route('admin.articles.update', $article->id)}}" method="POST" enctype="multipart/form-data">
       {{ csrf_field() }}
        @method('PUT')
       <div class="form-group">
@@ -28,7 +28,7 @@
         <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
           <option value="">Select a category</option>
           @foreach($categories as $category)
-          <option value="{{ $category->id }}" {{ $category->id == old('category_id', $article->category_id) ? 'selected' : '' }} >{{ $category->name }}</option>
+          <option value="{{ $category->id }}" {{ $category->id == old('category_id', $article->category_id) ? 'selected' : '' }} > {{ $category->name }} </option>
           @endforeach
         </select>
       </div>
