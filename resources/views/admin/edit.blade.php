@@ -22,6 +22,19 @@
         <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" aria-describedby="titleHelper" value="{{$article->title}}" minlength="2" maxlength="255" required>
         <small id="titleHelper" class="text-muted">inserisci il titolo minimo 1, massimo 255 caratteri</small>
       </div>
+
+      <div class="form-group">
+        <label for="category_id">Categories</label>
+        <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+          <option value="">Select a category</option>
+          @foreach($categories as $category)
+          <option value="{{ $category->id }}" {{ $category->id == old('category_id', $article->category_id) ? 'selected' : '' }} >{{ $category->name }}</option>
+          @endforeach
+        </select>
+      </div>
+      @error('category_id')
+      <div class="alert alert-danger">{{message}}</div>
+      @enderror
         
       <div class="form-group">
         <img src="{{asset('storage/' . $article->image)}}" width="100" alt="">

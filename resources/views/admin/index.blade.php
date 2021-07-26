@@ -6,6 +6,7 @@
         <table style="width:100%">
             <tr>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Image</th>
                 <th>Content</th>
                 <th>Actions</th>
@@ -13,6 +14,7 @@
             @foreach($articles as $article)
             <tr>
                 <td>{{$article->title}}</td>
+                <td>{{$article->category_id}}</td>
                 <td><img src="{{asset('storage/' . $article->image)}}" width="100" alt=""></td>
                 <td>{{$article->content}}</td>
             

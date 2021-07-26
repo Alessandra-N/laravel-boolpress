@@ -120,3 +120,6 @@ Now we can use assets to show the image
         <img src="{{asset('storage/' . $post->cover )}}" alt="">
     @endif
 ```
+<!-- mamp-> conf->phpversione->php.ini
+mamp->bin->php->phpversione->conf->php.ini
+ -->

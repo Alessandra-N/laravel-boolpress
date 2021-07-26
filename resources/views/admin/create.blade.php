@@ -15,6 +15,15 @@
         <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="" aria-describedby="helpId" minlength="2" maxlength="255" value="{{old('title')}}" required>
         <small id="helpId" class="text-muted">inserisci il titolo</small>
 
+        <div class="form-group">
+          <label for="category_id">Categories</label>
+          <select class="form-control" name="category_id" id="category_id">
+            <option selected>Select a category</option>
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+          </select>
+        </div>
         
         <label for="image">Cover Image</label>
         <input type="file" class="form-control-file" name="image" id="image" placeholder="Add a cover image" aria-describedby="imageHelper">
