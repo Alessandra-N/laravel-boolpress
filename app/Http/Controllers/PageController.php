@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+use App\Category;
 use App\Mail\ContactFormMailable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -10,7 +12,8 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view('guest.welcome');
+        $categories = Category::all();
+        return view('guest.welcome', compact('categories'));
     }
 
     public function about()

@@ -3,13 +3,20 @@
     <div id="app">
         <nav class="navbar navbar-expand-md">
             
-            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+        <div class="nav_left">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="https://cdn.pixabay.com/photo/2016/10/29/17/55/rose-1781087_960_720.png" alt="" width="80"> 
+                Home
+            </a>
             
             <div class="links">
-                <a href="{{route('articles.index')}}">Vai agli articoli</a>
+                <a href="{{route('articles.index')}}">Articles</a>
                 <a href="{{route('about')}}">About</a>
                 <a href="{{route('contacts')}}">Contacts</a>
             </div>
+        </div>
+        
+        <div class="nav_right">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -62,6 +69,8 @@
                     @endguest
                 </ul>
             </div>
+        </div>
+            
           
         </nav>
     

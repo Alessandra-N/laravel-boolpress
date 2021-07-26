@@ -1,0 +1,24 @@
+#app {
+    box-shadow: 5px 5px 5px rgb(83, 69, 50);
+}
+.navbar {
+    font-family: $font-family-indie-flower;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .nav_left,
+    .nav_right {
+        display: flex;
+        align-items: center;
+    }
+    .nav_right {
+        padding-top: 1rem;
+    }
+    a {
+        font-size: 35px!important;
+        margin-right: 2rem;
+        color: rgb(83, 69, 50)!important;
+    }
+    
+}
