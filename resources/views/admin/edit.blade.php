@@ -47,6 +47,18 @@
         <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" aria-describedby="helpId" rows="5" minlength="2" required>{{$article->content}}</textarea>
         <small id="helpId" class="text-muted">inserisci il contenuto</small>
       </div>
+
+      <div class="form-group">
+        <label for="tags"></label>
+        <select multiple class="form-control" name="tags[]" id="tags">
+          <option value="" disabled>Select Tags</option>
+          @if($tags)
+            @foreach($tags as $tag)
+            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+            @endforeach
+          @endif
+        </select>
+      </div>
         
       <div class="submit">
         <button>Submit</button>
