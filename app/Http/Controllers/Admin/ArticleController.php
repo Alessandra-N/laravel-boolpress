@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,7 +30,8 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.create', compact('categories', 'tags'));
     }
 
     /**
@@ -49,18 +51,19 @@ class ArticleController extends Controller
         $validData = $request->validate([
             'title' => ["required", "unique:articles",  "max:255"],
             'image' => 'nullable|mimes:jpg,jpeg,gif|max:500',
-            'category_id' => 'nullable | exists:categories,id',
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'exists:tags,id|nullable',
             'content' => 'min:5',
         ]);
         //ddd($validData);
         /* $file_path = Storage::disk('public')->put('article_images', $validated['image']);
         ddd($file_path); */
         if($request->hasFile('image')) {
-        $file_path = Storage::put('article_images', $validData['image']);
-        $validData['image'] = $file_path;
+            $file_path = Storage::put('article_images', $validData['image']);
+            $validData['image'] = $file_path;
         }
-        Article::create($validData);
-  
+        $article = Article::create($validData);
+        $article->tags()->attach($request->tags);
         return redirect()->route('articles.index');
     }
 
@@ -84,7 +87,8 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $categories = Category::all();
-        return view('admin.edit', compact('article', 'categories'));
+        $tags = Tag::all();
+        return view('admin.edit', compact('article', 'categories', 'tags'));
     }
 
     /**
@@ -100,13 +104,16 @@ class ArticleController extends Controller
             'title' => 'required | min:1 | max:255',
             'image' => 'nullable|mimes:jpg,jpeg,gif|max:500',
             'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'exists:tags,id|nullable',
             'content' => 'nullable | min:5'
         ]);
         if($request->hasFile('image')) {
             $file_path = Storage::put('article_images', $validated['image']);
             $validated['image'] = $file_path;
-            }
+        }
+
         $article->update($validated);
+        $article->tags()->attach($request->tags);
         return redirect()->route('admin.articles.index');
     }
 

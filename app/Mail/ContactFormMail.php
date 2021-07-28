@@ -33,8 +33,7 @@ class ContactFormMail extends Mailable
             'name' => $this->contact->name,
             'message' => $this->contact->message,
             'email' => $this->contact->email,
-
-
+            //serve view
         ]);
     }
 }

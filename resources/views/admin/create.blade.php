@@ -33,10 +33,22 @@
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
-        <label for=""></label>
+        <label for="content"></label>
         <textarea name="content" id="content" class="form-control @error('title') is-invalid @enderror" placeholder="" aria-describedby="helpId" rows="5" minlength="2" maxlength="255" required>{{old('content')}}</textarea>
         <small id="helpId" class="text-muted">inserisci il contenuto</small>
         
+        <div class="form-group">
+          <label for="tags"></label>
+          <select multiple class="form-control" name="tags[]" id="tags">
+            <option value="" disabled>Select Tags</option>
+            @if($tags)
+              @foreach($tags as $tag)
+              <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+              @endforeach
+            @endif
+          </select>
+        </div>
+
         <div class="submit">
           <button>Submit</button>
         </div>

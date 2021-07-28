@@ -32,10 +32,13 @@ main {
         width: 100%;
         color: black;
         padding: 1rem;
-        background-image: url("https://cdn.pixabay.com/photo/2017/03/03/15/34/background-2114231_960_720.jpg");
-        background-position: center;
+        background-image: url("https://cdn.pixabay.com/photo/2017/01/27/16/19/tree-2013453_960_720.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-color: white;
         text-align: center;
-        border: 1px solid black;
+        border: 1px solid orchid;
         ul {
             list-style: none;
             padding: 0;
