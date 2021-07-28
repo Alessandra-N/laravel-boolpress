@@ -19,7 +19,8 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all()->sortByDesc('id');
-        return view('admin.index', compact('articles'));
+        $tags = Tag::all();
+        return view('admin.index', compact('articles', 'tags'));
     }
 
     /**
@@ -52,7 +53,7 @@ class ArticleController extends Controller
             'title' => ["required", "unique:articles",  "max:255"],
             'image' => 'nullable|mimes:jpg,jpeg,gif|max:500',
             'category_id' => 'nullable|exists:categories,id',
-            'tags' => 'exists:tags,id|nullable',
+            'tags' => 'exists:tags,id',
             'content' => 'min:5',
         ]);
         //ddd($validData);
@@ -62,8 +63,10 @@ class ArticleController extends Controller
             $file_path = Storage::put('article_images', $validData['image']);
             $validData['image'] = $file_path;
         }
+        
         $article = Article::create($validData);
         $article->tags()->attach($request->tags);
+        //ddd($article);
         return redirect()->route('articles.index');
     }
 
@@ -104,16 +107,17 @@ class ArticleController extends Controller
             'title' => 'required | min:1 | max:255',
             'image' => 'nullable|mimes:jpg,jpeg,gif|max:500',
             'category_id' => 'nullable | exists:categories,id',
-            'tags' => 'exists:tags,id|nullable',
+            'tags' => 'exists:tags,id',
             'content' => 'nullable | min:5'
         ]);
-        if($request->hasFile('image')) {
+        
+        if($request->hasFile('image', $validated)) {
             $file_path = Storage::put('article_images', $validated['image']);
             $validated['image'] = $file_path;
         }
 
         $article->update($validated);
-        $article->tags()->attach($request->tags);
+        $article->tags()->sync($request->tags);
         return redirect()->route('admin.articles.index');
     }
 
@@ -125,6 +129,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $article->tags()->detach();
         $article->delete();
         return redirect()->route('admin.articles.index');
     }

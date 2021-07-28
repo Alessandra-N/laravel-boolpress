@@ -13,8 +13,8 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        $tags = ['diet', 'travels', 'art', 'looks', 'beauty'];
-
+        $tags = ['diet', 'beauty', 'travels', 'looks', 'art'];
+        
         foreach ($tags as $tag) {
             $new_tag = new Tag();
             $new_tag->name = $tag;

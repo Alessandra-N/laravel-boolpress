@@ -50,15 +50,22 @@
 
       <div class="form-group">
         <label for="tags"></label>
-        <select multiple class="form-control" name="tags[]" id="tags">
+        <select multiple class="form-control @error('tags') is-invalid @enderror" name="tags[]" id="tags">
           <option value="" disabled>Select Tags</option>
           @if($tags)
             @foreach($tags as $tag)
-            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+              @if($errors->any())
+                <option value="{{ $tag->id }}">{{ in_array($tag->id, old('tags')) ? 'selected' : '' }}> {{$tag->name}} </option>
+              @else
+              <option value="{{ $tag->id }}">{{ $article->tags->contains($tag) ? 'selected' : '' }}> {{$tag->name}} </option>
+              @endif
             @endforeach
           @endif
         </select>
       </div>
+      @error('tags')
+      <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
         
       <div class="submit">
         <button>Submit</button>

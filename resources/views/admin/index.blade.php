@@ -16,6 +16,7 @@
             <tr>
                 <td>{{$article->title}}</td>
                 <td>{{$article->category_id}}</td>
+                <td>{{$article->tag_id}}</td>
                 <td><img src="{{asset('storage/' . $article->image)}}" width="100" alt=""></td>
                 <!-- <td>{{$article->title}}</td> -->
                 <td>{{$article->content}}</td>
