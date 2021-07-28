@@ -15,8 +15,20 @@
             @foreach($articles as $article)
             <tr>
                 <td>{{$article->title}}</td>
-                <td>{{$article->category_id}}</td>
-                <td>{{$article->tag_id}}</td>
+                <td>
+                    @foreach($categories as $category)
+                        @if($category->id == $article->category_id)
+                            {{$category->name}}
+                        @endif
+                    @endforeach
+                
+                
+                </td>
+                <td>
+                    @foreach($article->tags as $tag)
+                        {{$tag->name}}
+                    @endforeach
+                </td>
                 <td><img src="{{asset('storage/' . $article->image)}}" width="100" alt=""></td>
                 <!-- <td>{{$article->title}}</td> -->
                 <td>{{$article->content}}</td>

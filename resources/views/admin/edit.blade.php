@@ -55,9 +55,9 @@
           @if($tags)
             @foreach($tags as $tag)
               @if($errors->any())
-                <option value="{{ $tag->id }}">{{ in_array($tag->id, old('tags')) ? 'selected' : '' }}> {{$tag->name}} </option>
+                <option value="{{ $tag->id }}" {{ in_array($tag->id, old('tags')) ? 'selected' : '' }}> {{$tag->name}} </option>
               @else
-              <option value="{{ $tag->id }}">{{ $article->tags->contains($tag) ? 'selected' : '' }}> {{$tag->name}} </option>
+                <option value="{{ $tag->id }}" {{$article->tags->contains($tag) ? 'selected' : ''}}> {{$tag->name}} </option>
               @endif
             @endforeach
           @endif

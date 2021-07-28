@@ -13,7 +13,7 @@
                 
                 <div class="tags">
                     Tags:
-                    @forelse($article->tags as tag)
+                    @forelse($article->tags as $tag)
                     <span>{{ $tag->name }}</span>
                     @empty
                     <span>no tags</span>

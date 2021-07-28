@@ -19,8 +19,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all()->sortByDesc('id');
+        $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.index', compact('articles', 'tags'));
+        return view('admin.index', compact('articles', 'tags', 'categories'));
     }
 
     /**

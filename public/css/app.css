@@ -11069,6 +11069,16 @@ main .article {
   border-radius: 10px;
 }
 
+.container_index {
+  height: 80vh;
+  overflow: auto;
+  border: 1px solid black;
+}
+
+.container_index table {
+  height: 80vh;
+}
+
 td,
 tr,
 th {
