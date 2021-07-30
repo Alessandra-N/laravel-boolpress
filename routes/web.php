@@ -1,6 +1,9 @@
 <?php
 
+use App\Article;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\ArticleResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +27,14 @@ Route::post('contacts', 'PageController@sendForm')->name('contacts');
 Route::get('contacts', 'ContactController@form')->name('contacts');
 Route::post('contacts', 'ContactController@send')->name('contacts.send');
 
+
+
+Route::get('articles/{article}', function (Article $article) {
+    return new ArticleResource(Article::find($article));
+});
+Route::get('vue-articles', function () {
+    return view('vue-articles');
+});
 
 
 Route::resource('articles', ArticleController::class)->only(['index', 'show']);

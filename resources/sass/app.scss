@@ -7,12 +7,6 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//Commons
-@import 'commons.scss';
-
-@import 'partials/header.scss';
-
-@import 'partials/guest/guest-welcome.scss';
-@import 'partials/guest/guest-index.scss';
-
+@import '/resources/sass/partials/guest/guest-index.scss';
+@import '/resources/sass/partials/guest/guest-welcome.scss';
 @import 'partials/admin-index.scss';
