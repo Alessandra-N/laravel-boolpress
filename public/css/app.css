@@ -34,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -66,7 +66,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6407,7 +6407,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6532,7 +6532,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -10949,7 +10949,11 @@ main {
   border-radius: 10px;
 }
 
-main .article {
+main .container {
+  padding: 2rem 0;
+}
+
+main .container .article {
   background-image: radial-gradient(circle at 50% 50%, #f9fdc9 0, #faf5be 8.33%, #fcedb2 16.67%, #fde3a6 25%, #fed89a 33.33%, #ffcc8e 41.67%, #ffbf83 50%, #ffb17a 58.33%, #ffa474 66.67%, #ff9771 75%, #ff8b71 83.33%, #ff7f74 91.67%, #ff7579 100%);
   padding: 2rem 1rem;
   margin-bottom: 1rem;
@@ -10973,6 +10977,120 @@ main .article {
 ::-webkit-scrollbar-thumb {
   background: #5f0a0a;
   border-radius: 10px;
+}
+
+#app nav {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+#app a {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+}
+
+#app ul {
+  list-style-type: none;
+}
+
+main {
+  display: flex;
+}
+
+main .row {
+  width: 100%;
+  height: 70vh;
+  padding: 1rem;
+  margin: auto;
+}
+
+main .row .categories {
+  font-family: "Indie Flower", cursive;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  color: black;
+  padding: 1rem;
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/27/16/19/tree-2013453_960_720.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-color: white;
+  text-align: center;
+  border: 1px solid orchid;
+}
+
+main .row .categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+main .row .categories ul li {
+  font-size: 25px;
+}
+
+main .row .categories ul li i {
+  color: black;
+  font-size: 15px;
+}
+
+.container_index {
+  height: 80vh;
+  overflow: auto;
+  border: 1px solid black;
+}
+
+.container_index table {
+  height: 80vh;
+}
+
+td,
+tr,
+th {
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+td:first-child,
+td:last-child {
+  width: 10%;
+}
+
+#app {
+  box-shadow: 5px 5px 5px #534532;
+}
+
+.navbar {
+  font-family: "Indie Flower", cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .nav_left,
+.navbar .nav_right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav_right {
+  padding-top: 1rem;
+}
+
+.navbar a {
+  font-size: 35px !important;
+  margin-right: 2rem;
+  color: #534532 !important;
+}
+
+body {
+  background: #d9abb1;
+  background: radial-gradient(circle, #d9abb1 50%, #fdd5cf 100%);
+  height: 100vh;
+  overflow: auto;
 }
 
 .container_index {

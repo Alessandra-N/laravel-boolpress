@@ -3,12 +3,16 @@ main {
     margin: auto;
     overflow: auto;
     border-radius: 10px;
-    .article {
+    .container {
+        padding: 2rem 0;
+        .article {
         background-image: radial-gradient(circle at 50% 50%, #f9fdc9 0, #faf5be 8.33%, #fcedb2 16.67%, #fde3a6 25%, #fed89a 33.33%, #ffcc8e 41.67%, #ffbf83 50%, #ffb17a 58.33%, #ffa474 66.67%, #ff9771 75%, #ff8b71 83.33%, #ff7f74 91.67%, #ff7579 100%);
         padding: 2rem 1rem;
         margin-bottom: 1rem;
         border-radius: 20px;
+        }
     }
+    
 }
 /* width */
 ::-webkit-scrollbar {

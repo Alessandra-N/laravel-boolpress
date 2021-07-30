@@ -27,10 +27,11 @@
 
 </head>
 <body>
-
+    <div id="app">
     @include('partials.header')
 
+
     @yield('content')
-    
+    </div>
 </body>
 </html>
