@@ -2,10 +2,13 @@
 
 @section('content')
 
+  <div id="app">
   
+    <h3>Articles in Vue</h3>
 
-  <h3>Articles in Vue</h3>
-  <div class="container">
+    <articles-component></articles-component>
+
+  <!-- <div class="container">
     <div class="card" v-for="article in articles">
       <img class="card-img-top p-5" :src="'/storage/' + article.image" alt="@{{article.title}}">
       <div class="card-body">
@@ -13,7 +16,8 @@
         <p class="card-text">@{{article.content}}</p>
       </div>
     </div>
-  </div>
-  
+  </div> -->
+  </div>  
+
 
 @endsection
